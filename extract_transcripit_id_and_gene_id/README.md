@@ -1,5 +1,5 @@
 ## Generate Transcript-Gene Annotation File
-The program .py uses GTF file as input and extracts transcript id, ensembl gene id and gene name. 
+The program **transcript_gene_annotation.py** uses GTF file as input and extracts transcript id, ensembl gene id and gene name. 
 
 ### 1) Input file
 The program takes GTF files as input. It can be downloaded from [Gencode](https://www.gencodegenes.org/human/release_19.html) or from [ensembl](https://useast.ensembl.org/info/data/ftp/index.html)
@@ -7,7 +7,7 @@ The annotation file uploaded here is downloaded from [here](http://ftp.ensembl.o
 
 ### 2) Running the Program
 
-The program can be run using `transcripts_to_gene.py -i Homo_sapiens.GRCh37.87.gtf --gene_version -o Homo_sapiens.GRCh37.87.t2g.txt --gtf_source ensembl`.
+The program can be run using `python transcript_gene_annotation.py.py -i Homo_sapiens.GRCh37.87.gtf --gene_version -o Homo_sapiens.GRCh37.87.t2g.txt --gtf_source ensembl`.
 Since, depending on the ensembl or gencode, the version information are stored differently, so gtf_source should be provided. By default it assumes the source as **gencode**.
 The parameter 'gene_version' adds gene version in the annotation file genetated. To see all the parameters available you can run `python get_gene_aliases.py -h`, which will give following details:
 
