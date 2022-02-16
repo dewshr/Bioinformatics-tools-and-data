@@ -8,7 +8,7 @@ def arguments():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-i','--gtf_file', default=None, help = 'gtf file to be used for transcript gene annotation file creation')
 	parser.add_argument('--gene_version', action = 'store_true', help='use gene version')
-	parser.add_argument('--gtf_source', choices=['gencode', 'ensembl'], default = 'gencode', help = 'gtf file source information. Depending on the source, information are stored slightly different. By default it uses gencode')
+	parser.add_argument('--gtf_source', choices=['gencode', 'ensembl'], default = 'gencode', help = 'gtf file source information. Depending on the source, version information are stored differently. By default it uses gencode')
 	parser.add_argument('-o','--output_file', default='transcript_annotation.txt', help='output filename')
 
 	args = parser.parse_args()
