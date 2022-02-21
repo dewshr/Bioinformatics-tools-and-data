@@ -10,7 +10,7 @@ The program is tested on python 3.7.9. The user will require following packages:
 The program takes SAM file as an input. Sample file  `input.sam` generated using [STAR](https://github.com/alexdobin/STAR) is provided for test purpose.
 
 ### 3) Running the Program
-The program can be run using `python extract_cigar_sequences.py -i input.sam -t S -o softclipped_reads.fq` -l 19. Here, `-i` takes input sam file, `-t` takes CIGAR strings, `-o` takes output file name and `-l` takes the length threshold to filter out the sequences which only extracts sequences greater than or equal to `l`. The full parameters available can be viewed by `python extract_cigar_sequences.py -h`
+The program can be run using `python extract_cigar_sequences.py -i input.sam -t S -o softclipped_reads.fq -l 20`. Here, `-i` takes input sam file, `-t` takes CIGAR strings, `-o` takes output file name and `-l` takes the length threshold to filter out the sequences which only extracts sequences greater than or equal to `l`. The full parameters available can be viewed by `python extract_cigar_sequences.py -h`
 
 ```
 usage: extract_cigar_sequences.py [-h] [-i INPUT_SAM_FILE] [-t {S,M,H,I,X}]
