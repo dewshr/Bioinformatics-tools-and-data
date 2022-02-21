@@ -12,7 +12,7 @@ def arguments():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-i','--input_sam_file', default=None, help = 'sam format file')
 	parser.add_argument('-t','--cigar_tag', choices=['S','M','H', 'I','X'], default = 'S', help='cigar tag to be used to extract sequence')
-	parser.add_argument('-l', '--length', default=19, type=int, help = 'minimum length of sequence to be extracted')
+	parser.add_argument('-l', '--length', default=19, type=int, help = 'minimum length of sequence to be extracted. Default:20')
 	parser.add_argument('-o', '--output_file', default = 'cigar_sequence.fq', help='output filename')
 
 	args = parser.parse_args()
@@ -67,7 +67,7 @@ def main():
 				if indices.iloc[i,2] == args.cigar_tag:
 					length = n+int(indices.iloc[i,1])
 					cigar_seq = sequence[n:length]
-					if len(cigar_seq)> args.length:
+					if len(cigar_seq) >= args.length:
 						f.write(f"@CIGAR: '{args.cigar_tag}' SPECIFIC-SEQUENCE length={len(cigar_seq)}\n")
 						f.write(cigar_seq)
 						f.write('\n+\n')
