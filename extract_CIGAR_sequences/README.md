@@ -27,3 +27,6 @@ optional arguments:
   -o OUTPUT_FILE, --output_file OUTPUT_FILE
                         output filename
 ```
+------
+> NOTE: S: soft-clipped, M: matched, H: hard-clipped, I: insertions, X: mismatched
+------
