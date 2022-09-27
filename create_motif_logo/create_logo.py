@@ -6,6 +6,7 @@ import argparse
 import os
 import sys
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def arguments():
@@ -33,6 +34,8 @@ def main():
 		sys.exit(1)
 
 
+	name = (args.out_name).split('.')[0]
+
 	print('..... Please make sure all the fasta sequences are of same length .....\n')
 	
 	print('.... reading in fasta file .....\n')
@@ -56,7 +59,7 @@ def main():
 	t_df = logomaker.transform_matrix(m_df, from_type = 'counts', to_type='information')
 	t_pwm = logomaker.transform_matrix(m_df, from_type = 'counts', to_type='probability')
 
-	name = (args.out_name).split('.')[0]
+	
 	with open(f'{args.output_folder}/{name}.pwm','w') as f:
 		f.write('MEME version 4\n\nALPHABET= ACGT\n\nstrands: + -\n\nBackground letter frequencies\nA 0.25 C 0.25 G 0.25 T 0.2\n\n')
 		f.write(f'MOTIF {name} {name}_motif\nletter-probability matrix: alength= 4 w= {t_df.shape[0]} nsites= {len(seq_list)} E= 0\n')
@@ -65,11 +68,16 @@ def main():
 
 
 	print('...... generating logo ......\n')
+	sns.set(font_scale=1.5, style='white')
+	plt.figure(figsize=(15,15))
 	crp_logo=logomaker.Logo(t_df,font_name='Arial Rounded MT Bold')
 	crp_logo.style_spines(visible=False)
 	crp_logo.style_spines(spines=['left', 'bottom'], visible=True)
 
-	plt.savefig(f"{args.output_folder}/{args.out_name}")
+	plt.title(name)
+	plt.tight_layout()
+	plt.savefig(f"{args.output_folder}/{name}.png")
+	plt.savefig(f"{args.output_folder}/{name}.pdf")
 
 
 if __name__ == "__main__":
