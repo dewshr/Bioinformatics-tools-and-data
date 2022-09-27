@@ -72,6 +72,7 @@ def main():
 	plt.figure(figsize=(15,15))
 	crp_logo=logomaker.Logo(t_df,font_name='Arial Rounded MT Bold')
 	crp_logo.style_spines(visible=False)
+	crp_logo.style_xticks(anchor=0)
 	crp_logo.style_spines(spines=['left', 'bottom'], visible=True)
 
 	plt.title(name)
